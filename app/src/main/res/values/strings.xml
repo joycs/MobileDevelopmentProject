@@ -1,4 +1,21 @@
 <resources>
-    <string name="app_name">MobileDevelopmentProject</string>
     <string name="addButtonText">+</string>
+    <string name="addExpenseBtnText">Add Expense</string>
+    <string name="addIncomeBtnText">Add Income</string>
+    <string name="dataLabel">Date:</string>
+    <string name="repeatLabel">Repeat Monthly:</string>
+    <string name="catergoryLabel">Category:</string>
+    <string name="amountLabel">Amount:</string>
+    <string name="accountLabel">Account:</string>
+    <string name="addPhoto">Add Photo:</string>
+    <string name="buttonLabelIncome">Add Income</string>
+    <string name="buttonLabelExpense">Add Expense</string>
+    <string name="dateHint">MMM, DD, MM, YYYY</string>
+    <string name="categoryHint">Pick a Category</string>
+    <string name="noteLabel">Note:</string>
+    <string name="hintNote">Area to Provide Details on the Expense</string>
+    <string name="hintAmount">Amount in Dollars</string>
+    <string name="app_name">Mobile Development Project</string>
+    <string name="hintIncomeNote">Area to Provide Details on Earned Income</string>
+    <string name="contentAddPhotoDesc">Add a Photo</string>
 </resources>
