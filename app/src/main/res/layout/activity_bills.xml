@@ -9,11 +9,18 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.joy.mobiledevelopmentproject.Bills">
 
-    <ImageButton
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="420sp"
+        android:id="@+id/listView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/btnAddBills"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/addbil"
-        android:layout_alignParentBottom="true" />
+        android:text="Add Bill"
+        android:id="@+id/btnAddBill"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
