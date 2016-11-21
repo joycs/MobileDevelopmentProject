@@ -1,15 +1,22 @@
 package com.example.joy.mobiledevelopmentproject;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.database.Cursor;
+import android.database.DataSetObserver;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Bills extends AppCompatActivity {
     DatabaseHelper dbh;
@@ -22,22 +29,27 @@ public class Bills extends AppCompatActivity {
 
         dbh = new DatabaseHelper(this);
         ListView lv = (ListView)findViewById(R.id.listView);
+        Button btnAB = (Button)findViewById(R.id.btnAddBill);
 
-        //below run on startup of activity
         Cursor r = dbh.viewRec();
         StringBuilder str = new StringBuilder();
         if(r.getCount()>0){
             while(r.moveToNext()){
-                str.append("ID: " + r.getString(0) + "\n");
-                str.append("Fname: " + r.getString(1) + "\n");
-                str.append("Lname: " + r.getString(2) + "\n");
-                str.append("Phone: " + r.getString(3) + "\n");
+                str.append(r.getString(1) + "\n");
+                str.append(r.getString(2) + "/Month \n");
+                str.append(r.getString(3) + " of each month \n");
             }
-            lv.add.setText(str);
+            billsList.add(str.toString());
         }else{
-            Toast.makeText(MainActivity.this,"No record to display",Toast.LENGTH_LONG).show();
+            Toast.makeText(Bills.this,"No record to display",Toast.LENGTH_LONG).show();
         }
 
-        Button btnAB = (Button)findViewById(R.id.btnAddBill);
+        btnAB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Intent intent = new Intent(Bills.this,AddExpense.class);
+                //startActivity(intent);
+            }
+        });
     }
 }

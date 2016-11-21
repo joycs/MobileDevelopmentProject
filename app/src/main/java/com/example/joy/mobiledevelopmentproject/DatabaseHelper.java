@@ -10,13 +10,13 @@ import android.database.sqlite.SQLiteOpenHelper;
  * Created by 300232405 on 11/21/2016.
  */
 public class DatabaseHelper extends SQLiteOpenHelper{
-    final static String DATABASE_NAME="contactinformation.db";
-    final static String TABLE_NAME="contactTable";
+    final static String DATABASE_NAME="expensetracker.db";
+    final static String TABLE_NAME="bills";
     final static int DATABASE_VERSION = 1;
     final static String COL_1 = "id";
-    final static String COL_2 = "Fname";
-    final static String COL_3 = "Lname";
-    final static String COL_4 = "phone";
+    final static String COL_2 = "billName";
+    final static String COL_3 = "billAmount";
+    final static String COL_4 = "billDate";
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -37,22 +37,14 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         onCreate(db);
     }
 
-    //delete using sql
-    public boolean deleteRec(String id){
-        SQLiteDatabase db = this.getWritableDatabase();
-        String query = "DELETE from contactTable WHERE id = '" + id + "'";
-        db.execSQL(query);
-        return true;
-    }
-
     //add record method
-    public boolean addRec(String fname,String lname,String ph){
+    public boolean addRec(String bname,String bamount,String bdate){
         //writable is moved from under super(context...) to here
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(COL_2,fname);
-        values.put(COL_3,lname);
-        values.put(COL_4,ph);
+        values.put(COL_2,bname);
+        values.put(COL_3,bamount);
+        values.put(COL_4,bdate);
         long r = db.insert(TABLE_NAME,null,values);
         if(r==-1)
             return false;
@@ -64,5 +56,13 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         String query = "Select * from " + TABLE_NAME;
         Cursor res = db.rawQuery(query,null);
         return res;
+    }
+
+    //delete using sql
+    public boolean deleteRec(String id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "DELETE from contactTable WHERE id = '" + id + "'";
+        db.execSQL(query);
+        return true;
     }
 }
