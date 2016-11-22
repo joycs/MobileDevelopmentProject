@@ -4,6 +4,7 @@ import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -12,7 +13,7 @@ import java.util.ArrayList;
 
 public class Budget extends AppCompatActivity {
     DatabaseHelper dbh;
-    ArrayList<String> billsList = new ArrayList<String>();
+    ArrayList<String> budgetList = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,10 +32,14 @@ public class Budget extends AppCompatActivity {
                 str.append(r.getString(2) + "/Month \n");
                 str.append(r.getString(3) + " of each month \n");
             }
-            billsList.add(str.toString());
+            budgetList.add(str.toString());
         }else{
             Toast.makeText(Budget.this,"No record to display",Toast.LENGTH_LONG).show();
         }
+        //putting arraylist into listview
+        ArrayAdapter<String> aa = new ArrayAdapter<String>(
+                this,android.R.layout.simple_list_item_1,budgetList);
+        lv.setAdapter(aa);
 
         btnAB.setOnClickListener(new View.OnClickListener() {
             @Override

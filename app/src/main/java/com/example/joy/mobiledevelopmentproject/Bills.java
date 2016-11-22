@@ -43,6 +43,10 @@ public class Bills extends AppCompatActivity {
         }else{
             Toast.makeText(Bills.this,"No record to display",Toast.LENGTH_LONG).show();
         }
+        //putting arraylist into listview
+        ArrayAdapter<String> aa = new ArrayAdapter<String>(
+                this,android.R.layout.simple_list_item_1,billsList);
+        lv.setAdapter(aa);
 
         btnAB.setOnClickListener(new View.OnClickListener() {
             @Override
