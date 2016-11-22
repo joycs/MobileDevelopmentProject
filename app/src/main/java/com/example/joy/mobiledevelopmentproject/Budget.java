@@ -23,7 +23,7 @@ public class Budget extends AppCompatActivity {
         ListView lv = (ListView)findViewById(R.id.listView2);
         Button btnAB = (Button)findViewById(R.id.btnAddExpense);
 
-        Cursor r = dbh.viewRec();
+        Cursor r = dbh.viewRec("budget");
         StringBuilder str = new StringBuilder();
         if(r.getCount()>0){
             while(r.moveToNext()){

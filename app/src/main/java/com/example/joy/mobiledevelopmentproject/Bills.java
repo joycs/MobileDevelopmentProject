@@ -31,7 +31,7 @@ public class Bills extends AppCompatActivity {
         ListView lv = (ListView)findViewById(R.id.listView);
         Button btnAB = (Button)findViewById(R.id.btnAddBill);
 
-        Cursor r = dbh.viewRec();
+        Cursor r = dbh.viewRec("bills");
         StringBuilder str = new StringBuilder();
         if(r.getCount()>0){
             while(r.moveToNext()){
