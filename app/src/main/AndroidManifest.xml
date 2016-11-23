@@ -16,7 +16,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".Bills" />
-        <activity android:name=".Budget"></activity>
+        <activity android:name=".Budget">
+        </activity>
+        <activity android:name=".AddExpense"></activity>
+        <activity android:name=".AddIncome"></activity>
     </application>
 
 </manifest>

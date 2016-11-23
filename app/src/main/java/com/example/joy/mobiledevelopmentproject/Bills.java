@@ -51,8 +51,7 @@ public class Bills extends AppCompatActivity {
         btnAB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent intent = new Intent(Bills.this,AddExpense.class);
-                //startActivity(intent);
+               startActivity(new Intent(Bills.this, AddIncome.class));
             }
         });
     }

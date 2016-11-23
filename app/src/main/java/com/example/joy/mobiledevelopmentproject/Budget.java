@@ -1,5 +1,6 @@
 package com.example.joy.mobiledevelopmentproject;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -44,8 +45,8 @@ public class Budget extends AppCompatActivity {
         btnAB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent intent = new Intent(Budget.this,AddExpense.class);
-                //startActivity(intent);
+               startActivity(new Intent(Budget.this, AddExpense.class));
+
             }
         });
     }

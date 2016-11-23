@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_add_income"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.joy.mobiledevelopmentproject.AddIncome">
+
+    <TextView
+        android:text="@string/dataLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/addIcomeLabel"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="26dp"
+        android:id="@+id/dateLabelIncome"
+        android:textSize="20sp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        android:ems="10"
+        android:id="@+id/dateTextIncome"
+        android:hint="@string/dateHint"
+        android:textSize="18sp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginStart="12dp"
+        android:layout_alignBaseline="@+id/dateLabelIncome"
+        android:layout_alignBottom="@+id/dateLabelIncome"
+        android:layout_alignLeft="@+id/addIcomeLabel"
+        android:layout_alignStart="@+id/addIcomeLabel"
+        android:textAlignment="center"/>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/repeatMonthlyIncome"
+        android:layout_alignBaseline="@+id/repeatMonthIncome"
+        android:layout_alignBottom="@+id/repeatMonthIncome"
+        android:layout_toRightOf="@+id/repeatMonthIncome"
+        android:layout_toEndOf="@+id/repeatMonthIncome"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp" />
+
+    <TextView
+        android:text="@string/catergoryLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/repeatMonthlyIncome"
+        android:layout_alignLeft="@+id/repeatMonthIncome"
+        android:layout_alignStart="@+id/repeatMonthIncome"
+        android:layout_marginTop="28dp"
+        android:id="@+id/catergoryLabelIncome"
+        android:textSize="20sp" />
+
+    <Spinner
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/catergorySpinnerIncome"
+        android:layout_alignTop="@+id/catergoryLabelIncome"
+        android:layout_alignRight="@+id/dateTextIncome"
+        android:layout_alignEnd="@+id/dateTextIncome"
+        android:layout_marginRight="27dp"
+        android:layout_marginEnd="27dp"
+        android:textAlignment="center"
+        android:entries="@array/categories" />
+
+    <TextView
+        android:text="@string/repeatLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:id="@+id/repeatMonthIncome"
+        android:textSize="20sp"
+        android:layout_below="@+id/dateTextIncome"
+        android:layout_alignLeft="@+id/dateLabelIncome"
+        android:layout_alignStart="@+id/dateLabelIncome" />
+
+    <TextView
+        android:text="@string/amountLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="29dp"
+        android:id="@+id/amountLabelIncome"
+        android:textSize="20sp"
+        android:layout_below="@+id/catergoryLabelIncome"
+        android:layout_alignLeft="@+id/catergoryLabelIncome"
+        android:layout_alignStart="@+id/catergoryLabelIncome" />
+
+    <EditText
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/incomeAmount"
+        android:hint="@string/hintAmount"
+        android:layout_alignBaseline="@+id/amountLabelIncome"
+        android:layout_alignBottom="@+id/amountLabelIncome"
+        android:layout_alignRight="@+id/dateTextIncome"
+        android:layout_alignEnd="@+id/dateTextIncome"
+        android:layout_alignLeft="@+id/dateTextIncome"
+        android:layout_alignStart="@+id/dateTextIncome"
+        android:textAlignment="center"/>
+
+    <TextView
+        android:text="@string/addPhoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:id="@+id/addPhotoIncomeLabel"
+        android:textSize="20sp"
+        android:layout_below="@+id/incomeAmount"
+        android:layout_alignLeft="@+id/amountLabelIncome"
+        android:layout_alignStart="@+id/amountLabelIncome" />
+
+    <ImageButton
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:srcCompat="@android:drawable/ic_menu_camera"
+        android:id="@+id/addPhotoIncome"
+        android:layout_alignTop="@+id/addPhotoIncomeLabel"
+        android:layout_alignRight="@+id/repeatMonthlyIncome"
+        android:layout_alignEnd="@+id/repeatMonthlyIncome"
+        android:contentDescription="@string/contentAddPhotoDesc" />
+
+    <TextView
+        android:text="@string/noteLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/addPhotoIncome"
+        android:layout_alignLeft="@+id/addPhotoIncomeLabel"
+        android:layout_alignStart="@+id/addPhotoIncomeLabel"
+        android:layout_marginTop="35dp"
+        android:id="@+id/noteIncomeLabel"
+        android:textSize="20sp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:layout_alignTop="@+id/noteIncomeLabel"
+        android:layout_alignRight="@+id/incomeAmount"
+        android:layout_alignEnd="@+id/incomeAmount"
+        android:id="@+id/noteDetailsIncome"
+        android:hint="@string/hintIncomeNote" />
+
+    <Button
+        android:text="@string/buttonLabelIncome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/addIncomeButton"
+        android:background="@android:color/holo_green_dark"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        style="@style/Widget.AppCompat.Button" />
+
+    <TextView
+        android:text="@string/buttonLabelIncome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/addIcomeLabel"
+        android:textSize="30sp"
+        android:textStyle="normal|bold"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>
