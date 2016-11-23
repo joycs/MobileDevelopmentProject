@@ -9,10 +9,13 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 public class AddIncome extends AppCompatActivity {
+
     int GalleryImage = 0;
     DatabaseHelper mobileProjectDatabase;
     @Override
@@ -26,7 +29,7 @@ public class AddIncome extends AppCompatActivity {
         String dateIncomeString = dateIncomeFormat.format(date);
         dateIncomeText.setText(dateIncomeString);
 
-
+        mobileProjectDatabase = new DatabaseHelper(this);
         final EditText dateIncome = (EditText)findViewById(R.id.dateTextIncome);
         final EditText amountIncome = (EditText)findViewById(R.id.incomeAmount);
         final EditText noteIncome = (EditText)findViewById(R.id.noteDetailsIncome);
@@ -39,25 +42,35 @@ public class AddIncome extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                double amount = Double.parseDouble(amountIncome.getText().toString());
+                String amount = amountIncome.getText().toString();
                 String date = dateIncome.getText().toString();
                 String note = noteIncome.getText().toString();
                 String category = incomeCategory.getSelectedItem().toString();
                 // Boolean repeat = expensiveRepeat.isChecked();
 
-             /*
-                boolean isAdded = mobileProjectDatabase.addRec(amount, date, category, note );
+                if(!amount.matches("") && !note.matches("")) {
+                    ArrayList<String> incomeList = new ArrayList<String>();
+                    incomeList.add(category);
+                    incomeList.add(amount);
+                    incomeList.add(date);
+                    incomeList.add(note);
 
-                if(isAdded== true)
-                {
-                    expenseAmount.setText("");
-                    expenseNote.setText("");
+                    boolean isAdded = mobileProjectDatabase.addRec("income", incomeList);
 
+                    if (isAdded) {
+                        amountIncome.setText("");
+                        noteIncome.setText("");
+                        Toast.makeText(AddIncome.this, "Values Added", Toast.LENGTH_LONG).show();
+
+
+                    } else {
+                        Toast.makeText(AddIncome.this, "Values Not Added", Toast.LENGTH_LONG).show();
+                    }
                 }
-                else{
-                    Toast.makeText(AddExpense.this, "Values Added", Toast.LENGTH_LONG).show();
+                else {
+                    Toast.makeText(AddIncome.this, "The Values Amount and Note Can Not Be Empty ", Toast.LENGTH_LONG).show();
                 }
-             */
+
 
             }
         });

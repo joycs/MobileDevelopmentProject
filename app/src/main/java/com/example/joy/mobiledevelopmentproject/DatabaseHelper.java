@@ -20,9 +20,9 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String query = "CREATE TABLE bills(billId INTEGER PRIMARY KEY, billName TEXT, billAmount TEXT, billDate TEXT)";
+        String query = "CREATE TABLE bills(billId INTEGER PRIMARY KEY, billName TEXT, billAmount TEXT, billDate TEXT, billNote TEXT)";
         db.execSQL(query);
-        query = "CREATE TABLE income(incomeId INTEGER PRIMARY KEY, incomeName TEXT, incomeAmount TEXT)";
+        query = "CREATE TABLE income(incomeId INTEGER PRIMARY KEY, incomeName TEXT, incomeAmount TEXT, incomeDate TEXT, incomeNote TEXT)";
         db.execSQL(query);
         query = "CREATE TABLE budget(budgetId INTEGER PRIMARY KEY, budgetName TEXT, budgetAmount TEXT)";
         db.execSQL(query);
@@ -35,14 +35,22 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     }
 
     //add record method
-    public boolean addRec(String table,ArrayList<String> s){
+    public boolean addRec(String table, ArrayList<String> s){
         //writable is moved from under super(context...) to here
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         if(table=="bills"){
-            values.put("billName",s.get(0));
-            values.put("billAmount",s.get(1));
-            values.put("billDate",s.get(2));
+            values.put("billName", s.get(0));
+            values.put("billAmount", s.get(1));
+            values.put("billDate", s.get(2));
+            values.put("billNote", s.get(3));
+        }
+        else if(table.equals("income"))
+        {
+            values.put("incomeName", s.get(0));
+            values.put("incomeAmount", s.get(1));
+            values.put("incomeDate", s.get(2));
+            values.put("incomeNote", s.get(3));
         }
         long r = db.insert(table,null,values);
         if(r==-1)

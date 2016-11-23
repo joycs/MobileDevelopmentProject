@@ -23,4 +23,22 @@
         android:layout_height="75dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="Bills"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="107dp"
+        android:id="@+id/billsButton" />
+
+    <Button
+        android:text="Budget"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/billsButton"
+        android:layout_alignStart="@+id/billsButton"
+        android:id="@+id/budgetBtn" />
 </RelativeLayout>

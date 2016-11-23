@@ -12,6 +12,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 public class AddExpense extends AppCompatActivity {
     DatabaseHelper mobileProjectDatabase;
@@ -45,25 +46,32 @@ public class AddExpense extends AppCompatActivity {
         addExpenseBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                double amount = Double.parseDouble(expenseAmount.getText().toString());
+                String amount = expenseAmount.getText().toString();
                 String date = expenseDate.getText().toString();
                 String note = expenseNote.getText().toString();
                 String category = expenseCategory.getSelectedItem().toString();
-               // Boolean repeat = expensiveRepeat.isChecked();
+                // Boolean repeat = expensiveRepeat.isChecked();
+                if (!amount.matches("") && !note.matches("")) {
+                    ArrayList<String> list = new ArrayList<String>();
+                    list.add(category);
+                    list.add(amount);
+                    list.add(date);
+                    list.add(note);
 
-             /*
-                boolean isAdded = mobileProjectDatabase.addRec(amount, date, category, note );
+                boolean isAdded = mobileProjectDatabase.addRec("bills", list);
 
-                if(isAdded== true)
-                {
+                if (isAdded == true) {
                     expenseAmount.setText("");
                     expenseNote.setText("");
-
-                }
-                else{
                     Toast.makeText(AddExpense.this, "Values Added", Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(AddExpense.this, Bills.class));
+                } else {
+                    Toast.makeText(AddExpense.this, "Values Not Added", Toast.LENGTH_LONG).show();
                 }
-             */
+               }
+                else{
+                    Toast.makeText(AddExpense.this, "The Values Amount and Note Can Not Be Empty ", Toast.LENGTH_LONG).show();
+                }
 
             }
         });

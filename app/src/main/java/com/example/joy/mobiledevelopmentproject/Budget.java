@@ -25,7 +25,7 @@ public class Budget extends AppCompatActivity {
         ListView lv = (ListView)findViewById(R.id.listView2);
         Button btnAB = (Button)findViewById(R.id.btnAddExpense);
 
-        Cursor r = dbh.viewRec("budget");
+        Cursor r = dbh.viewRec("income");
         StringBuilder str = new StringBuilder();
         if(r.getCount()>0){
             while(r.moveToNext()){
@@ -45,7 +45,7 @@ public class Budget extends AppCompatActivity {
         btnAB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               startActivity(new Intent(Budget.this, AddExpense.class));
+               startActivity(new Intent(Budget.this, AddIncome.class));
 
             }
         });
