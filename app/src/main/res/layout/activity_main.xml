@@ -41,4 +41,23 @@
         android:layout_alignLeft="@+id/billsButton"
         android:layout_alignStart="@+id/billsButton"
         android:id="@+id/budgetBtn" />
+
+    <Button
+        android:text="Income"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/budgetBtn"
+        android:layout_alignRight="@+id/addButton"
+        android:layout_alignEnd="@+id/addButton"
+        android:id="@+id/incomeBtn" />
+
+    <Button
+        android:text="Savings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/budgetBtn"
+        android:layout_alignRight="@+id/budgetBtn"
+        android:layout_alignEnd="@+id/budgetBtn"
+        android:layout_marginTop="14dp"
+        android:id="@+id/savingsBtn" />
 </RelativeLayout>
