@@ -46,5 +46,21 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, Budget.class));
             }
         });
+
+        Button incomeBtn = (Button)findViewById(R.id.incomeBtn);
+        incomeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, Income.class));
+            }
+        });
+
+        Button savingsBtn = (Button)findViewById(R.id.savingsBtn);
+        savingsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, Savings.class));
+            }
+        });
     }
 }
