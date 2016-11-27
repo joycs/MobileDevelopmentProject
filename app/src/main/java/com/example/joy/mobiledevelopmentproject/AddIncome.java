@@ -55,7 +55,9 @@ public class AddIncome extends AppCompatActivity {
                     incomeList.add(date);
                     incomeList.add(note);
 
-                    boolean isAdded = mobileProjectDatabase.addRec("income", incomeList);
+                    mobileProjectDatabase.createTable("James");
+
+                    boolean isAdded = mobileProjectDatabase.addRec("James", incomeList);
 
                     if (isAdded) {
                         amountIncome.setText("");

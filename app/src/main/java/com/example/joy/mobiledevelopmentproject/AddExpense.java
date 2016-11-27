@@ -58,20 +58,27 @@ public class AddExpense extends AppCompatActivity {
                     list.add(date);
                     list.add(note);
 
-                boolean isAdded = mobileProjectDatabase.addRec("bills", list);
+                    //Place user name as the parameter of the create table method
+                    mobileProjectDatabase.createTable("Jesse");
 
-                if (isAdded == true) {
-                    expenseAmount.setText("");
-                    expenseNote.setText("");
-                    Toast.makeText(AddExpense.this, "Values Added", Toast.LENGTH_LONG).show();
-                    startActivity(new Intent(AddExpense.this, Bills.class));
-                } else {
+                      //Place user name as the parameter of the add rec method
+                        boolean isAdded = mobileProjectDatabase.addRec("Jesse", list);
+
+
+                        if (isAdded == true) {
+                            expenseAmount.setText("");
+                            expenseNote.setText("");
+                            Toast.makeText(AddExpense.this, "Values Added", Toast.LENGTH_LONG).show();
+                            startActivity(new Intent(AddExpense.this, Bills.class));
+                        } else {
                     Toast.makeText(AddExpense.this, "Values Not Added", Toast.LENGTH_LONG).show();
                 }
-               }
-                else{
-                    Toast.makeText(AddExpense.this, "The Values Amount and Note Can Not Be Empty ", Toast.LENGTH_LONG).show();
+
                 }
+                    else{
+                        Toast.makeText(AddExpense.this, "The Values Amount and Note Can Not Be Empty ", Toast.LENGTH_LONG).show();
+                    }
+
 
             }
         });

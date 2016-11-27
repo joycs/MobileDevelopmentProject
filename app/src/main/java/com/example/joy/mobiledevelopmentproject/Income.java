@@ -25,7 +25,7 @@ public class Income extends AppCompatActivity {
         ListView lv = (ListView) findViewById(R.id.listView3);
         Button btnAB = (Button) findViewById(R.id.btnAddIncome);
 
-        Cursor r = dbh.viewRec("income");
+        Cursor r = dbh.viewRec("James");
         StringBuilder str = new StringBuilder();
         if (r.getCount() > 0) {
             while (r.moveToNext()) {

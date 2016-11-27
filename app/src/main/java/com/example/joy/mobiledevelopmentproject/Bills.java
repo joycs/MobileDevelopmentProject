@@ -31,7 +31,7 @@ public class Bills extends AppCompatActivity {
         ListView lv = (ListView)findViewById(R.id.listView);
         Button btnAB = (Button)findViewById(R.id.btnAddBill);
 
-        Cursor r = dbh.viewRec("bills");
+        Cursor r = dbh.viewRec("Jesse");
         StringBuilder str = new StringBuilder();
         if(r.getCount()>0){
             while(r.moveToNext()){
@@ -41,9 +41,9 @@ public class Bills extends AppCompatActivity {
             }
             billsList.add(str.toString());
         }else{
-            Toast.makeText(Bills.this,"No record to display",Toast.LENGTH_LONG).show();
-        }
-        //putting arraylist into listview
+        Toast.makeText(Bills.this,"No record to display",Toast.LENGTH_LONG).show();
+    }
+    //putting arraylist into listview
         ArrayAdapter<String> aa = new ArrayAdapter<String>(
                 this,android.R.layout.simple_list_item_1,billsList);
         lv.setAdapter(aa);
